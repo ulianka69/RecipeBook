@@ -11,12 +11,14 @@ public class Recipe {
     private String ingredients;
     private String instructions;
     private String imageUrl;
+    private String category;
 
-    public Recipe(String title, String ingredients, String instructions, String imageUrl) {
+    public Recipe(String title, String ingredients, String instructions, String imageUrl, String category) {
         this.title = title;
         this.ingredients = ingredients;
         this.instructions = instructions;
         this.imageUrl = imageUrl;
+        this.category = category != null ? category : "Основное";
     }
 
     public int getId() { return id; }
@@ -25,4 +27,6 @@ public class Recipe {
     public String getIngredients() { return ingredients; }
     public String getInstructions() { return instructions; }
     public String getImageUrl() { return imageUrl; }
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
 }

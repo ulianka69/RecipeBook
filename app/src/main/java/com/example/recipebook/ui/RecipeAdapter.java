@@ -41,8 +41,30 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Recipe recipe = recipes.get(position);
+
         holder.tvTitle.setText(recipe.getTitle());
         holder.tvIngredients.setText(recipe.getIngredients());
+
+
+        String category = recipe.getCategory() != null ? recipe.getCategory() : " Основное";
+        holder.tvCategory.setText(category);
+
+        int colorRes;
+        if (category.contains("Десерт")) {
+            colorRes = R.color.category_dessert;
+        } else if (category.contains("Напит")) {
+            colorRes = R.color.category_drink;
+        } else if (category.contains("Салат")) {
+            colorRes = R.color.category_salad;
+        } else if (category.contains("Суп")) {
+            colorRes = R.color.category_soup;
+        } else if (category.contains("Закус")) {
+            colorRes = R.color.category_snack;
+        } else {
+            colorRes = R.color.category_main;
+        }
+        holder.tvCategory.setBackgroundColor(
+                holder.itemView.getContext().getResources().getColor(colorRes, null));
 
 
         if (recipe.getImageUrl() != null && !recipe.getImageUrl().isEmpty()) {
@@ -68,13 +90,16 @@ public class RecipeAdapter extends RecyclerView.Adapter<RecipeAdapter.ViewHolder
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitle, tvIngredients;
+        TextView tvTitle, tvIngredients, tvCategory, tvTime, tvDifficulty;
         ImageView ivRecipeImage;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvIngredients = itemView.findViewById(R.id.tvIngredients);
+            tvCategory = itemView.findViewById(R.id.tvCategory);
+            tvTime = itemView.findViewById(R.id.tvTime);
+            tvDifficulty = itemView.findViewById(R.id.tvDifficulty);
             ivRecipeImage = itemView.findViewById(R.id.ivRecipeImage);
         }
     }

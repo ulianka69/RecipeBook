@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -31,6 +32,7 @@ public class AddRecipeActivity extends AppCompatActivity {
     private RecipeDatabase db;
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private EditText etTitle, etIngredients, etInstructions;
+    private Spinner spinnerCategory;
     private ImageView ivRecipePreview;
     private Button btnSave, btnSelectImage;
     private Uri imageUri;
@@ -41,13 +43,13 @@ public class AddRecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_recipe);
 
-
         ImageButton btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> onBackPressed());
 
         etTitle = findViewById(R.id.etTitle);
         etIngredients = findViewById(R.id.etIngredients);
         etInstructions = findViewById(R.id.etInstructions);
+        spinnerCategory = findViewById(R.id.spinnerCategory);
         ivRecipePreview = findViewById(R.id.ivRecipePreview);
         btnSave = findViewById(R.id.btnSave);
         btnSelectImage = findViewById(R.id.btnSelectImage);
@@ -113,18 +115,20 @@ public class AddRecipeActivity extends AppCompatActivity {
         String title = etTitle.getText().toString().trim();
         String ingredients = etIngredients.getText().toString().trim();
         String instructions = etInstructions.getText().toString().trim();
+        String category = spinnerCategory.getSelectedItem().toString();
 
         if (title.isEmpty()) {
             etTitle.setError("Введите название");
             return;
         }
 
-        Recipe newRecipe = new Recipe(title, ingredients, instructions, imagePath != null ? imagePath : "");
+        Recipe newRecipe = new Recipe(title, ingredients, instructions,
+                imagePath != null ? imagePath : "", category);
 
         executor.execute(() -> {
             db.recipeDao().insert(newRecipe);
             runOnUiThread(() -> {
-                Toast.makeText(AddRecipeActivity.this, "Рецепт сохранён!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddRecipeActivity.this, " Рецепт сохранён!", Toast.LENGTH_SHORT).show();
                 finish();
             });
         });

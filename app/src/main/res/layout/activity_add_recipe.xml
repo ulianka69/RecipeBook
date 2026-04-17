@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5">
+    android:background="@color/background">
 
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#2E7D32">
+        android:background="@color/primary">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -23,14 +23,14 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@android:drawable/ic_menu_revert"
                 android:contentDescription="Назад"
-                android:tint="#FFFFFF"
+                android:tint="@color/white"
                 android:padding="12dp"
                 android:layout_gravity="start"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Новый рецепт"
+                android:text=" Новый рецепт"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
@@ -73,10 +73,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ингредиенты"
+                android:text=" Категория"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:textColor="#2E7D32"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="8dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/rounded_spinner_background"
+                android:paddingHorizontal="12dp"
+                android:entries="@array/categories_array"
+                android:layout_marginBottom="16dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Ингредиенты"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -100,10 +119,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Инструкция"
+                android:text=" Инструкция"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:textColor="#2E7D32"
+                android:textColor="@color/text_primary"
                 android:layout_marginBottom="8dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -150,7 +169,8 @@
                 android:layout_height="56dp"
                 android:text="Сохранить рецепт"
                 android:textSize="16sp"
-                app:cornerRadius="8dp"/>
+                app:cornerRadius="8dp"
+                app:backgroundTint="@color/primary"/>
 
         </LinearLayout>
     </ScrollView>

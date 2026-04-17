@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Базовые цвета -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Основная палитра: Тёплые бежевые тона -->
+    <color name="primary">#8B7355</color>
+    <color name="primary_dark">#6D5A43</color>
+    <color name="primary_light">#A68A64</color>
+    <color name="accent">#D4A574</color>
+    <color name="accent_dark">#B8956A</color>
+
+    <!-- Фоны -->
+    <color name="background">#FDF8F3</color>
+    <color name="surface">#FFFDF9</color>
+    <color name="card_background">#FFFFFF</color>
+
+    <!-- Текст -->
+    <color name="text_primary">#3E3A33</color>
+    <color name="text_secondary">#6B6358</color>
+    <color name="text_hint">#A89F91</color>
+
+    <!-- Градиенты -->
+    <color name="gradient_start">#8B7355</color>
+    <color name="gradient_end">#D4A574</color>
+    <color name="gradient_green_start">#7A9B76</color>
+    <color name="gradient_green_end">#A8C6A4</color>
+
+    <!-- Цвета категорий для бейджей -->
+    <color name="category_main">#FFB347</color>
+    <color name="category_dessert">#FF8FA3</color>
+    <color name="category_drink">#87CEEB</color>
+    <color name="category_salad">#98D98E</color>
+    <color name="category_soup">#E6A87C</color>
+    <color name="category_snack">#C9B3D9</color>
+
+    <!-- Статусы -->
+    <color name="success">#5A9E5A</color>
+    <color name="warning">#E6B800</color>
+    <color name="error">#D64545</color>
+    <color name="divider">#E8E0D5</color>
+    <color name="ffffff">#FFFFFF</color>
 </resources>
